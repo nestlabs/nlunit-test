@@ -66,7 +66,7 @@ AC_SUBST(LIBNLUNIT_TEST_VERSION_INFO,     [${LIBNLUNIT_TEST_VERSION_CURRENT}:${L
 # Check the sanity of the source directory by checking for the
 # presence of a key watch file
 #
-AC_CONFIG_SRCDIR([src/nltest.h])
+AC_CONFIG_SRCDIR([src/nlunit-test.h])
 
 #
 # Tell autoconf where to find auxilliary build tools (e.g. config.guess,
