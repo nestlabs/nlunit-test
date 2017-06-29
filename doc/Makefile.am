@@ -97,6 +97,6 @@ docdist $(nlunit_test_docdist_alias): $(nlunit_test_docdist_archive)
 clean-local:
 	$(AM_V_at)rm -f -r html
 
-endif # NLUNITTEST_BUILD_DOCS
+endif # NLUNIT_TEST_BUILD_DOCS
 
 include $(abs_top_nlbuild_autotools_dir)/automake/post.am

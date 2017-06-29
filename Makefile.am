@@ -80,9 +80,9 @@ VERSION_FILE                      := $(if $(wildcard $(builddir)/.local-version)
 # package was bootstrapped.
 #
 
-NLUNITTEST_VERSION                ?= $(shell cat $(VERSION_FILE) 2> /dev/null)
+NLUNIT_TEST_VERSION               ?= $(shell cat $(VERSION_FILE) 2> /dev/null)
 
-PACKAGE_VERSION                    = $(NLUNITTEST_VERSION)
+PACKAGE_VERSION                    = $(NLUNIT_TEST_VERSION)
 VERSION                            = $(PACKAGE_VERSION)
 
 #
@@ -91,19 +91,19 @@ VERSION                            = $(PACKAGE_VERSION)
 # Speculatively regenerate .local-version and check to see if it needs
 # to be updated.
 #
-# If NLUNITTEST_VERSION has been supplied anywhere other than in this file
+# If NLUNIT_TEST_VERSION has been supplied anywhere other than in this file
 # (which is implicitly the contents of .local-version), then use that;
 # otherwise, attempt to generate it from the SCM system.
 #
 # This is called from $(call check-file,.local-version).
 #
 define check-file-.local-version
-if [ "$(origin NLUNITTEST_VERSION)" != "file" ]; then  \
-    echo "$(NLUNITTEST_VERSION)" > "$(2)";             \
-else                                                   \
-    $(abs_top_nlbuild_autotools_dir)/scripts/mkversion \
-        -b "$(NLUNITTEST_VERSION)" "$(top_srcdir)"     \
-        > "$(2)";                                      \
+if [ "$(origin NLUNIT_TEST_VERSION)" != "file" ]; then  \
+    echo "$(NLUNIT_TEST_VERSION)" > "$(2)";             \
+else                                                    \
+    $(abs_top_nlbuild_autotools_dir)/scripts/mkversion  \
+        -b "$(NLUNIT_TEST_VERSION)" "$(top_srcdir)"     \
+        > "$(2)";                                       \
 fi
 endef
 
