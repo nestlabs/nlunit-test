@@ -30,6 +30,7 @@ SUBDIRS                             = \
     $(NULL)
 
 EXTRA_DIST                          = \
+    CHANGES                           \
     CONTRIBUTING.md                   \
     LICENSE                           \
     README.md                         \
