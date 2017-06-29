@@ -42,7 +42,7 @@ nlunit_test_docdist_alias                       = \
     $(PACKAGE_TARNAME)-docs
 
 nlunit_test_docdist_name                        = \
-    $(nlunittest_docdist_alias)-$(VERSION)
+    $(nlunit_test_docdist_alias)-$(VERSION)
 
 nlunit_test_docdist_archive                     = \
     $(docdistdir)/$(nlunit_test_docdist_name).tar.gz
@@ -80,7 +80,7 @@ html/index.html: Doxyfile
 
 #
 # Addition rules and commands to create a documentation-only
-# distribution of nlunittest
+# distribution of nlunit-test
 #
 
 $(nlunit_test_docdist_name): html/index.html
