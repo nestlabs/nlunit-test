@@ -27,12 +27,12 @@ module's output will be automatically flagged.
 
 # Interact
 
-There are numerous avenues for nlbuild-autotools support:
+There are numerous avenues for nlunit-test support:
 
   * Bugs and feature requests — [submit to the Issue Tracker](https://github.com/nestlabs/nlunit-test/issues)
   * Google Groups — discussion and announcements
-    * [nlunit-test-announce](https://groups.google.com/forum/#!forum/nlunit-test-announce) — release notes and new updates on nlbuild-autotools
-    * [nlunit-test-users](https://groups.google.com/forum/#!forum/nlunit-test-users) — discuss use of and enhancements to nlbuild-autotools
+    * [nlunit-test-announce](https://groups.google.com/forum/#!forum/nlunit-test-announce) — release notes and new updates on nlunit-test
+    * [nlunit-test-users](https://groups.google.com/forum/#!forum/nlunit-test-users) — discuss use of and enhancements to nlunit-test
 
 # Versioning
 
