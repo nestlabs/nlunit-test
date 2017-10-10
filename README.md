@@ -1,3 +1,5 @@
+[![Build Status[nlunit-test-travis-svg]][nlunit-test-travis]
+
 Nest Labs Unit Test
 ===================
 
@@ -24,6 +26,9 @@ and handle errors appropriately. This ensures each of the building
 blocks of the system functions correctly. These tests can also be
 used for regression testing so that any code changes that affect a
 module's output will be automatically flagged.
+
+[nlunit-test-travis]: https://travis-ci.org/nestlabs/nlunit-test
+[nlunit-test-travis-svg]: https://travis-ci.org/nestlabs/nlunit-test.svg?branch=master
 
 # Interact
 
