@@ -5,4 +5,4 @@ compiler:
   - gcc
 
 script:
-  - ./configure && make distcheck
+  - ./configure && make && make distcheck
