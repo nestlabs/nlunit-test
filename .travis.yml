@@ -3,3 +3,6 @@ sudo: false
 compiler:
   - clang
   - gcc
+
+script:
+  - ./configure && make distcheck
