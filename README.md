@@ -1,4 +1,4 @@
-[![Build Status[nlunit-test-travis-svg]][nlunit-test-travis]
+[![Build Status][nlunit-test-travis-svg]][nlunit-test-travis]
 
 Nest Labs Unit Test
 ===================
