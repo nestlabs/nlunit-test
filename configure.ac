@@ -212,6 +212,20 @@ NL_ENABLE_DEBUG([no])
 
 AM_CONDITIONAL([NLUNIT_TEST_BUILD_DEBUG], [test "${nl_cv_build_debug}" = "yes"])
 
+#
+# Code coverage and compiler optimization
+#
+
+# Coverage
+
+NL_ENABLE_COVERAGE([no])
+
+AM_CONDITIONAL([NLUNIT_TEST_BUILD_COVERAGE], [test "${nl_cv_build_coverage}" = "yes"])
+
+NL_ENABLE_COVERAGE_REPORTS([auto])
+
+AM_CONDITIONAL([NLUNIT_TEST_BUILD_COVERAGE_REPORTS], [test "${nl_cv_build_coverage_reports}" = "yes"])
+
 # Optimization
 
 NL_ENABLE_OPTIMIZATION([yes])
