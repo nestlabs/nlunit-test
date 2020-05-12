@@ -250,6 +250,12 @@ AM_CONDITIONAL(NLUNIT_TEST_BUILD_DOCS, [test "${nl_cv_build_docs}" = "yes"])
 AC_HEADER_STDBOOL
 AC_HEADER_STDC
 
+# Add any code coverage CPPFLAGS and LIBS
+
+CPPFLAGS="${CPPFLAGS} ${NL_COVERAGE_CPPFLAGS}"
+LDFLAGS="${LDFLAGS} ${NL_COVERAGE_LDFLAGS}"
+LIBS="${LIBS} ${NL_COVERAGE_LIBS}"
+
 # At this point, we can restore the compiler flags to whatever the
 # user passed in, now that we're clear of any -Werror issues by
 # transforming -Wno-error back to -Werror.
@@ -289,7 +295,12 @@ AC_MSG_NOTICE([
   Cross compiling                           : ${cross_compiling}
   Build shared libraries                    : ${enable_shared}
   Build static libraries                    : ${enable_static}
+  Build debug libraries                     : ${nl_cv_build_debug}
   Build optimized libraries                 : ${nl_cv_build_optimized}
+  Build coverage libraries                  : ${nl_cv_build_coverage}
+  Build coverage reports                    : ${nl_cv_build_coverage_reports}
+  Lcov                                      : ${LCOV:--}
+  Genhtml                                   : ${GENHTML:--}
   Prefix                                    : ${prefix}
   Documentation support                     : ${nl_cv_build_docs}
   Doxygen                                   : ${DOXYGEN:--}
@@ -307,6 +318,3 @@ AC_MSG_NOTICE([
   Link libraries                            : ${LIBS}
 
 ])
-
-
-
