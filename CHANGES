@@ -1,3 +1,9 @@
+1.0.7 (2020-05-11)
+
+        * Added support for NL_ENABLE_COVERAGE and
+          NL_ENABLE_COVERAGE_REPORTS to address issues with recursive,
+          cached conigurations.
+
 1.0.6 (2020-04-30)
 
         * Updated to nlbuild-autotools 1.7.2.
