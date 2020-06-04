@@ -1,4 +1,5 @@
 /**
+ *    Copyright 2020 Project nlunit-test Authors. All Rights Reserved.
  *    Copyright 2012-2017 Nest Labs Inc. All Rights Reserved.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
@@ -162,7 +163,7 @@ typedef struct _nlTestOutputLogger {
      *  @param[in]    inSuite      A pointer to the test suite for which
      *                             the name should be rendered.
      *
-     */ 
+     */
     void (*PrintName)(struct _nlTestSuite*inSuite);
 
     /**
@@ -178,8 +179,8 @@ typedef struct _nlTestOutputLogger {
      *                             allowed for rendering the setup name
      *                             or phase.
      *
-     */ 
-	void (*PrintInitialize)(struct _nlTestSuite * inSuite, int inResult, int inWidth);
+     */
+     void (*PrintInitialize)(struct _nlTestSuite * inSuite, int inResult, int inWidth);
 
     /**
      * This function is responsible for rendering the status of the
@@ -194,7 +195,7 @@ typedef struct _nlTestOutputLogger {
      *                             allowed for rendering the setup name
      *                             or phase.
      *
-     */ 
+     */
     void (*PrintTerminate)(struct _nlTestSuite * inSuite, int inResult, int inWidth);
 
     /**
@@ -210,7 +211,7 @@ typedef struct _nlTestOutputLogger {
      *                             allowed for rendering the setup name
      *                             or phase.
      *
-     */ 
+     */
     void (*PrintSetup)(struct _nlTestSuite*inSuite, int inResult, int inWidth);
 
     /**
@@ -277,7 +278,7 @@ typedef struct _nlTestOutputLogger {
 
 /**
  *  @addtogroup cpp Preprocessor Definitions and Macros
- *  
+ *
  *  @{
  */
 
@@ -287,7 +288,7 @@ typedef struct _nlTestOutputLogger {
  *  @brief
  *    Defines the maximum number of tests allowed in a single test suite.
  *
- */    
+ */
 #define kTestSuiteMaxTests (64)
 
 /**
@@ -309,9 +310,9 @@ typedef struct _nlTestOutputLogger {
 #define FAILURE -1
 
 #ifdef __cplusplus
-#define _NL_TEST_ASSIGN(field, value)	value
+#define _NL_TEST_ASSIGN(field, value) value
 #else
-#define _NL_TEST_ASSIGN(field, value)	.field = value
+#define _NL_TEST_ASSIGN(field, value) .field = value
 #endif /* __cplusplus */
 
 /**
@@ -358,28 +359,29 @@ typedef struct _nlTestOutputLogger {
  *                             assertion fails.
  *
  */
-#define NL_TEST_ASSERT(inSuite, inCondition)          \
-    do {                                              \
-        (inSuite)->performedAssertions += 1;          \
-                                                      \
-        if (!(inCondition))                           \
-        {                                             \
-            printf("Failed assert: %s in %s:%u\n",    \
-                   #inCondition, __FILE__, __LINE__); \
-            (inSuite)->failedAssertions += 1;         \
-            (inSuite)->flagError = true;              \
-        }                                             \
+#define NL_TEST_ASSERT(inSuite, inCondition)            \
+    do {                                                \
+        (inSuite)->performedAssertions += 1;            \
+                                                        \
+        if (!(inCondition))                             \
+        {                                               \
+            printf("%s:%u: assertion failed: \"%s\"\n", \
+                   __FILE__, __LINE__, #inCondition);   \
+            (inSuite)->failedAssertions += 1;           \
+            (inSuite)->flagError = true;                \
+        }                                               \
     } while (0)
 
-#define NL_TEST_ASSERT_LOOP(inSuite, iteration, inCondition )                                           \
-do {                                                                                                    \
-    (inSuite)->performedAssertions += 1;                                                                \
-    if ( !(inCondition) )                                                                               \
-    {                                                                                                   \
-		printf( "Failed assert: %s in %s:%u, iter: %d\n", #inCondition, __FILE__, __LINE__, iteration);	\
-        (inSuite)->failedAssertions += 1;                                                               \
-        (inSuite)->flagError = true;                                                                    \
-    }                                                                                                   \
+#define NL_TEST_ASSERT_LOOP(inSuite, iteration, inCondition)     \
+do {                                                             \
+    (inSuite)->performedAssertions += 1;                         \
+    if ( !(inCondition) )                                        \
+    {                                                            \
+        printf("%s:%u: loop iter %d assertion failed: \"%s\"\n", \
+               __FILE__, __LINE__, iteration, #inCondition);     \
+        (inSuite)->failedAssertions += 1;                        \
+        (inSuite)->flagError = true;                             \
+    }                                                            \
 } while (0)
 
 /**
@@ -436,7 +438,7 @@ extern void nlTestSetLogger(const nlTestOutputLogger* inLogger);
 
 /**
  *  @addtogroup compat Compatibility Types and Interfaces
- *  
+ *
  *  Deprecated legacy types and interfaces. New usage of these types
  *  and interfaces is discouraged.
  *
